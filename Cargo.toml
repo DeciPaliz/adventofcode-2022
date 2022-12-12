@@ -1,0 +1,159 @@
+[package]
+name = "advent"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "1_1"
+
+[[bin]]
+name = "1_2"
+
+[[bin]]
+name = "2_1"
+
+[[bin]]
+name = "2_2"
+
+[[bin]]
+name = "3_1"
+
+[[bin]]
+name = "3_2"
+
+[[bin]]
+name = "4_1"
+
+[[bin]]
+name = "4_2"
+
+[[bin]]
+name = "5_1"
+
+[[bin]]
+name = "5_2"
+
+[[bin]]
+name = "6_1"
+
+[[bin]]
+name = "6_2"
+
+[[bin]]
+name = "7_1"
+
+[[bin]]
+name = "7_2"
+
+[[bin]]
+name = "8_1"
+
+[[bin]]
+name = "8_2"
+
+[[bin]]
+name = "9_1"
+
+[[bin]]
+name = "9_2"
+
+[[bin]]
+name = "10_1"
+
+[[bin]]
+name = "10_2"
+
+[[bin]]
+name = "11_1"
+
+[[bin]]
+name = "11_2"
+
+[[bin]]
+name = "12_1"
+
+[[bin]]
+name = "12_2"
+
+[[bin]]
+name = "13_1"
+
+[[bin]]
+name = "13_2"
+
+[[bin]]
+name = "14_1"
+
+[[bin]]
+name = "14_2"
+
+[[bin]]
+name = "15_1"
+
+[[bin]]
+name = "15_2"
+
+[[bin]]
+name = "16_1"
+
+[[bin]]
+name = "16_2"
+
+[[bin]]
+name = "17_1"
+
+[[bin]]
+name = "17_2"
+
+[[bin]]
+name = "18_1"
+
+[[bin]]
+name = "18_2"
+
+[[bin]]
+name = "19_1"
+
+[[bin]]
+name = "19_2"
+
+[[bin]]
+name = "20_1"
+
+[[bin]]
+name = "20_2"
+
+[[bin]]
+name = "21_1"
+
+[[bin]]
+name = "21_2"
+
+[[bin]]
+name = "22_1"
+
+[[bin]]
+name = "22_2"
+
+[[bin]]
+name = "23_1"
+
+[[bin]]
+name = "23_2"
+
+[[bin]]
+name = "24_1"
+
+[[bin]]
+name = "24_2"
+
+[[bin]]
+name = "25_1"
+
+[[bin]]
+name = "25_2"
+
