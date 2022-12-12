@@ -8,58 +8,58 @@ edition = "2021"
 [dependencies]
 
 [[bin]]
-name = "1_1"
+name = "01_1"
 
 [[bin]]
-name = "1_2"
+name = "01_2"
 
 [[bin]]
-name = "2_1"
+name = "02_1"
 
 [[bin]]
-name = "2_2"
+name = "02_2"
 
 [[bin]]
-name = "3_1"
+name = "03_1"
 
 [[bin]]
-name = "3_2"
+name = "03_2"
 
 [[bin]]
-name = "4_1"
+name = "04_1"
 
 [[bin]]
-name = "4_2"
+name = "04_2"
 
 [[bin]]
-name = "5_1"
+name = "05_1"
 
 [[bin]]
-name = "5_2"
+name = "05_2"
 
 [[bin]]
-name = "6_1"
+name = "06_1"
 
 [[bin]]
-name = "6_2"
+name = "06_2"
 
 [[bin]]
-name = "7_1"
+name = "07_1"
 
 [[bin]]
-name = "7_2"
+name = "07_2"
 
 [[bin]]
-name = "8_1"
+name = "08_1"
 
 [[bin]]
-name = "8_2"
+name = "08_2"
 
 [[bin]]
-name = "9_1"
+name = "09_1"
 
 [[bin]]
-name = "9_2"
+name = "09_2"
 
 [[bin]]
 name = "10_1"
