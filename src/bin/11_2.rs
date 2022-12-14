@@ -1,8 +1,6 @@
 extern crate num;
 
 use std::io;
-use num::BigUint; // why develop clever code when you can just use bigint AMIRIGHT LMAO *dies*
-use num_bigint::ToBigUint;
 
 enum MonkeyOperation {
     Add(u32),
@@ -11,17 +9,17 @@ enum MonkeyOperation {
 }
 
 impl MonkeyOperation {
-    pub fn execute(&self, worry_level: BigUint) -> BigUint {
+    pub fn execute(&self, worry_level: u128) -> u128 {
         match self {
-            Self::Add(i) => worry_level + i,
-            Self::Multiply(i) => worry_level * i,
-            Self::Square => worry_level.clone() * worry_level
+            Self::Add(i) => worry_level + *i as u128,
+            Self::Multiply(i) => worry_level * *i as u128,
+            Self::Square => worry_level * worry_level
         }
     }
 }
 
 struct Monkey {
-    items: Vec<BigUint>,
+    items: Vec<u128>,
     operation: MonkeyOperation,
     test: u32,
     true_throw: usize,
@@ -33,7 +31,7 @@ impl Monkey {
     pub fn new(buf: &Vec<String>) -> Self {
         let mut buf = buf.iter();
         buf.next().unwrap();
-        let items = Vec::from_iter(buf.next().unwrap()[17..].split(", ").map(|x| x.trim().parse::<BigUint>().unwrap()));
+        let items = Vec::from_iter(buf.next().unwrap()[17..].split(", ").map(|x| x.trim().parse::<u128>().unwrap()));
 
         let operation: MonkeyOperation;
         {
@@ -57,24 +55,24 @@ impl Monkey {
         Self { items, operation, test, true_throw, false_throw, checks: 0 }
     }
 
-    pub fn catch_item(&mut self, item: BigUint) {
+    pub fn catch_item(&mut self, item: u128) {
         self.items.push(item);
     }
     
-    fn update(&mut self) -> Option<(usize, BigUint)> {
+    fn update(&mut self) -> Option<(usize, u128)> {
         if self.items.len() == 0 { return None }
 
         let mut item = self.items.remove(0);
         self.checks += 1;
         item = self.operation.execute(item);
 
-        if item.clone() % self.test == 0.to_biguint().unwrap() {
+        if item.clone() % self.test as u128 == 0 {
             return Some((self.true_throw, item));
         }
         Some((self.false_throw, item))
     }
 
-    pub fn turn(&mut self) -> Vec<(usize, BigUint)> {
+    pub fn turn(&mut self) -> Vec<(usize, u128)> {
         let mut res = vec![];
         while self.items.len() > 0 {
             if let Some(r) = self.update() {
@@ -86,6 +84,10 @@ impl Monkey {
 
     pub fn get_checks(&self) -> u64 {
         self.checks
+    }
+
+    pub fn get_test(&self) -> u32 {
+        self.test
     }
 }
 
@@ -106,14 +108,15 @@ fn main() -> io::Result<()> {
     }
     monkeys.push(Monkey::new(&buf));
 
+    let modulo = monkeys.iter().map(|el| el.get_test() as u128).reduce(|acc, el| acc*el).unwrap();
+
     for i in 0..10000 {
         for i in 0..monkeys.len() {
             let turn = monkeys[i].turn();
             for throw in turn {
-                monkeys[throw.0].catch_item(throw.1);
+                monkeys[throw.0].catch_item(throw.1 % modulo);
             }
         }
-        eprintln!("{}", i);
     }
 
     let mut checks = monkeys.iter().map(|monkey| monkey.get_checks()).collect::<Vec<u64>>();
