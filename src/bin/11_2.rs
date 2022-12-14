@@ -1,5 +1,3 @@
-extern crate num;
-
 use std::io;
 
 enum MonkeyOperation {
@@ -110,7 +108,7 @@ fn main() -> io::Result<()> {
 
     let modulo = monkeys.iter().map(|el| el.get_test() as u128).reduce(|acc, el| acc*el).unwrap();
 
-    for i in 0..10000 {
+    for _ in 0..10000 {
         for i in 0..monkeys.len() {
             let turn = monkeys[i].turn();
             for throw in turn {
